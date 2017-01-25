@@ -6,7 +6,7 @@ WebSocketServer = WebSocket.Server,
 clients = [],
 ipaddress = env.NODE_IP || 'localhost',
 wss = new WebSocketServer({host:ipaddress, port:8080,
-      headers: {"Access-Control-Allow-Origin":"*"}
+      perMessageDeflate:false
 });
 
 wss.on('connection', function(ws) {
