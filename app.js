@@ -71,7 +71,7 @@
 // });
 // });
 var WebSocketServer = require('ws').Server,
-    wss = new WebSocketServer({host:127.5.25.1
+    wss = new WebSocketServer({host:'127.5.25.1'
 , port: 8080});
 
 wss.on('connection', function(ws) {
