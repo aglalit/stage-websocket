@@ -1,4 +1,5 @@
-const env = process.env;
+const env = process.env,
+uuidV4 = require('uuid/v4');
 
 var WebSocket = require('ws'),
 WebSocketServer = WebSocket.Server,
