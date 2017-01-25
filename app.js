@@ -44,7 +44,9 @@ const http         = require('http'),
 var WebSocket = require('ws'),
 WebSocketServer = WebSocket.Server,
 wss = new WebSocketServer({host:ipaddress, port:8080}),
-clients = [];
+clients = [],
+ipaddress = env.NODE_IP || 'localhost',
+port = env.NODE_PORT || 3000;
 
 wss.on('connection', function(ws) {
 var client_uuid = uuidV4();
