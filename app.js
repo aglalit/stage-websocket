@@ -14,8 +14,6 @@ console.log(clients);
 console.log('client [%s] connected', client_uuid);
 
 ws.on('close', function() {
-      var a = new CloseEvent('fsdf');
-  console.log(a.code);
 for(var i=0; i<clients.length; i++) {
  if(clients[i].id == client_uuid) {
       console.log('client [%s] disconnected', client_uuid);
