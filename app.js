@@ -6,7 +6,6 @@ WebSocketServer = WebSocket.Server,
 clients = [],
 ipaddress = env.NODE_IP || 'localhost',
 wss = new WebSocketServer({host:ipaddress, port:8080,
-      perMessageDeflate:false
 });
 
 wss.on('connection', function(ws) {
@@ -25,11 +24,11 @@ for(var i=0; i<clients.length; i++) {
 });
 ws.on('message', function(message) {
 console.log(message);
-clients.forEach(function(client){
- var clientSocket = client.ws;
- console.log('client [%s]: %s', client.id, message);
- if (clientSocket.readyState === WebSocket.OPEN) clientSocket.send(message)})
-});
-setInterval(function(){ws.send('fsdfs')},1000)
+// clients.forEach(function(client){
+//  var clientSocket = client.ws;
+//  console.log('client [%s]: %s', client.id, message);
+//  if (clientSocket.readyState === WebSocket.OPEN) clientSocket.send(message)})
+// });
+setInterval(function(){ws.send('fsdfs')},2000)
 
 });
