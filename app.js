@@ -23,8 +23,7 @@ for(var i=0; i<clients.length; i++) {
 }
 });
 ws.on('message', function(message) {
-if (message.data == "PING") ws.send("PONG");
-console.log(message.data);
+if (message == "PING") ws.send({"PONG":Date.now()});
 clients.forEach(function(client){
  var clientSocket = client.ws;
  console.log('client [%s]: %s', client.id, message);
