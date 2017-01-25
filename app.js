@@ -5,7 +5,9 @@ var WebSocket = require('ws'),
 WebSocketServer = WebSocket.Server,
 clients = [],
 ipaddress = env.NODE_IP || 'localhost',
-wss = new WebSocketServer({host:ipaddress, port:8080});
+wss = new WebSocketServer({host:ipaddress, port:8080,
+      headers: {"Access-Control-Allow-Origin":"*"}
+});
 
 wss.on('connection', function(ws) {
 var client_uuid = uuidV4();
