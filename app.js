@@ -43,9 +43,9 @@ const http         = require('http'),
 // });
 var WebSocket = require('ws'),
 WebSocketServer = WebSocket.Server,
-wss = new WebSocketServer({host:ipaddress, port:8080}),
 clients = [],
 ipaddress = env.NODE_IP || 'localhost',
+wss = new WebSocketServer({host:ipaddress, port:8080}),
 port = env.NODE_PORT || 3000;
 console.log(env.NODE_IP);
 wss.on('connection', function(ws) {
