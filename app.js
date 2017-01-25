@@ -22,8 +22,10 @@ for(var i=0; i<clients.length; i++) {
  }
 }
 });
-ws.on('message', function(message) {
+ws.on('message', function(message, flags) {
 console.log(message);
+console.log(flags);
+
 // clients.forEach(function(client){
 //  var clientSocket = client.ws;
 //  console.log('client [%s]: %s', client.id, message);
