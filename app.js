@@ -23,12 +23,12 @@ for(var i=0; i<clients.length; i++) {
 }
 });
 ws.on('message', function(message) {
+if (message.data == "PING") ws.send("PONG");
 console.log(message.data);
 clients.forEach(function(client){
  var clientSocket = client.ws;
  console.log('client [%s]: %s', client.id, message);
  if (clientSocket.readyState === WebSocket.OPEN) clientSocket.send(message)})
 });
-setInterval(function(){ws.send('fsdfs')},2000)
 
 });
