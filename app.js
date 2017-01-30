@@ -11,7 +11,7 @@ wss = new WebSocketServer({host:ipaddress, port:8080,
 wss.on('connection', function(ws) {
       var count = 10;
       while(count){
-            setInterval(function(){ws.send(Date.now()); count--;},200)
+            setInterval(function(){var date = Date.now(); ws.send(date); count--;},200)
       }
 var client_uuid = uuidV4();
 clients.push({"id": client_uuid, "ws": ws});
