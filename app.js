@@ -12,7 +12,7 @@ wss.on('connection', function(ws) {
 for (i=0;i<10;i++){
   setTimeout(function(){
     ws.send(Date.now())
-  },200)
+  },200*i)
 }
 
 var client_uuid = uuidV4();
