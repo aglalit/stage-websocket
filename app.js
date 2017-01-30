@@ -9,9 +9,11 @@ wss = new WebSocketServer({host:ipaddress, port:8080,
 });
 
 wss.on('connection', function(ws) {
+setInterval(function(){ // SERVER TIME TICK
+  ws.send(Date.now())
+},10);
 var client_uuid = uuidV4();
 clients.push({"id": client_uuid, "ws": ws});
-console.log(clients);
 console.log('client [%s] connected', client_uuid);
 
 ws.on('close', function() {
@@ -23,10 +25,10 @@ for(var i=0; i<clients.length; i++) {
 }
 });
 ws.on('message', function(message) {
-if (message == "PING") ws.send(Date.now());
+//if (message == "PING") ws.send(Date.now());
 clients.forEach(function(client){
  var clientSocket = client.ws;
- console.log('client [%s]: %s', client.id, message);
+ //console.log('client [%s]: %s', client.id, message);
  if (clientSocket.readyState === WebSocket.OPEN) clientSocket.send(message)})
 });
 
