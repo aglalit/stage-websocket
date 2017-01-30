@@ -9,11 +9,7 @@ wss = new WebSocketServer({host:ipaddress, port:8080,
 });
 
 wss.on('connection', function(ws) {
-// for (i=0;i<1;i++){
-//   setTimeout(function(){
-//     ws.send(Date.now())
-//   },200*i)
-// }
+ws.send(Date.now())
 
 var client_uuid = uuidV4();
 clients.push({"id": client_uuid, "ws": ws});
