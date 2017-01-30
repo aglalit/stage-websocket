@@ -9,10 +9,10 @@ wss = new WebSocketServer({host:ipaddress, port:8080,
 });
 
 wss.on('connection', function(ws) {
-      var count = 10;
-      while(count){
-            setInterval(function(){var date = Date.now(); ws.send(date); count--;},200)
+      for(var k = 0;k<10;k++){
+            setInterval(function(){var date = Date.now(); ws.send(date)},200*k)
       }
+
 var client_uuid = uuidV4();
 clients.push({"id": client_uuid, "ws": ws});
 console.log('client [%s] connected', client_uuid);
