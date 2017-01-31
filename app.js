@@ -17,7 +17,7 @@ wss.on('connection', function(ws) {
        setInterval(function(){
              now = Date.now();
              ws.send('PING');
-      },200)
+      },1000)
 
 var client_uuid = uuidV4();
 clients.push({"id": client_uuid, "ws": ws});
