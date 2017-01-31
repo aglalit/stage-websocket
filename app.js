@@ -4,16 +4,20 @@ uuidV4 = require('uuid/v4');
 var WebSocket = require('ws'),
 WebSocketServer = WebSocket.Server,
 clients = [],
+now,
 ipaddress = env.NODE_IP || 'localhost',
 wss = new WebSocketServer({host:ipaddress, port:8080,
 });
 
-console.log(Date.now());
+
+
+
 
 wss.on('connection', function(ws) {
-      // for(var k = 0;k<10;k++){
-      //       setInterval(function(){var date = Date.now(); ws.send(date)},200*k)
-      // }
+       setInterval(function(){
+             now = Date.now();
+             ws.send('PING');
+      },200)
 
 var client_uuid = uuidV4();
 clients.push({"id": client_uuid, "ws": ws});
@@ -28,7 +32,7 @@ for(var i=0; i<clients.length; i++) {
 }
 });
 ws.on('message', function(message) {
-//if (message == "PING") ws.send(Date.now());
+if (message == "PONG") console.log(Date.now() - now);
 clients.forEach(function(client){
  var clientSocket = client.ws;
  //console.log('client [%s]: %s', client.id, message);
