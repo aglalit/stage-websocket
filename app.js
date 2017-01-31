@@ -28,10 +28,10 @@ for(var i=0; i<clients.length; i++) {
 }
 });
 ws.on('message', function(message) {
-      setInterval(function(){
+
            now = Date.now();
            ws.send('PING');
-     },1000)
+     
 if (message == "PONG") console.log(Date.now() - now);
 clients.forEach(function(client){
  var clientSocket = client.ws;
