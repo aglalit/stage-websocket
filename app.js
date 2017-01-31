@@ -8,6 +8,8 @@ ipaddress = env.NODE_IP || 'localhost',
 wss = new WebSocketServer({host:ipaddress, port:8080,
 });
 
+console.log(Date.now());
+
 wss.on('connection', function(ws) {
       // for(var k = 0;k<10;k++){
       //       setInterval(function(){var date = Date.now(); ws.send(date)},200*k)
