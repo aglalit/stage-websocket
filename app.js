@@ -14,7 +14,7 @@ wss = new WebSocketServer({host:ipaddress, port:8080,
 
 
 wss.on('connection', function(ws) {
-
+ws.send("PING")
 var client_uuid = uuidV4();
 clients.push({"id": client_uuid, "ws": ws});
 console.log('client [%s] connected', client_uuid);
@@ -31,7 +31,7 @@ ws.on('message', function(message) {
 
            now = Date.now();
            ws.send('PING');
-     
+
 if (message == "PONG") console.log(Date.now() - now);
 clients.forEach(function(client){
  var clientSocket = client.ws;
