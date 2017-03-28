@@ -7,11 +7,7 @@
 /.gitignore.*
 /.tmp/
 /.DS_Store
-/client/js/node_modules/bower_components/
-/client-built/
-/config/development.json
-/config/production.json
-/config/staging.json
+/public/bower_components/
 /log/
 /node_modules/
 /npm-debug.log
